@@ -36,4 +36,8 @@ npm run lint
 
 ## API数据
 
-https://my-json-server.typicode.com/Lockseed/vuemastery-real-world-vue-3
+API返回的数据适用`my-json-server`代理本项目根目录下的`db.json`文件，访问链接：https://my-json-server.typicode.com/Lockseed/vuemastery-real-world-vue-3 。
+
+## 项目部署
+
+项目部署在Render上，部署地址：https://real-world-vue-3-fcxq.onrender.com/ ，Dashbord地址：https://dashboard.render.com/static/srv-cqllgmo8fa8c73b3vuug 。
