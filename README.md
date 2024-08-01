@@ -33,3 +33,7 @@ npm run build
 ```sh
 npm run lint
 ```
+
+## API数据
+
+https://my-json-server.typicode.com/Lockseed/vuemastery-real-world-vue-3
