@@ -35,9 +35,9 @@ onMounted(() => {
     <EventCard v-for="event in events" :key="event.key" :event="event" />
 
     <div class="pagination">
-      <router-link id="page-prev" :to="{ name: 'event-list', query: { page: page - 1 } }" rel="prev"
+      <router-link id="page-prev" :to="{ name: 'EventList', query: { page: page - 1 } }" rel="prev"
         v-if="page != 1">&#60; Previous</router-link>
-      <router-link id="page-next" :to="{ name: 'event-list', query: { page: page + 1 } }" rel="next"
+      <router-link id="page-next" :to="{ name: 'EventList', query: { page: page + 1 } }" rel="next"
         v-if="hasNextPage">Next &#62;</router-link>
     </div>
   </div>
