@@ -18,7 +18,7 @@ const events = ref(null)
 onMounted(() => {
   watchEffect(() => {
     events.value = null;
-    EventService.getEvents(2, page.value)
+    EventService.getEvents(3, page.value)
       .then((response) => {
         // console.log("events: ", response.data)
         events.value = response.data

@@ -1,3 +1,4 @@
+import { inject } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import EventListView from '../views/EventListVue.vue'
 import EventLayout from '@/views/event/EventLayout.vue'
@@ -36,7 +37,8 @@ const router = createRouter({
         {
           path: 'edit',
           name: 'EventEdit',
-          component: EventEdit
+          component: EventEdit,
+          meta: { requireAuth: true }
         }
       ]
     },
@@ -68,7 +70,32 @@ const router = createRouter({
       name: 'NotFound',
       component: NotFound
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  }
+})
+
+router.beforeEach((to, from) => {
+  const notAuthorized = true
+  const GStore = inject('GStore')
+
+  if (to.meta.requireAuth && notAuthorized) {
+    GStore.flashMessage = 'Sorry, you must be logged in to view this page.'
+    setTimeout(() => {
+      GStore.flashMessage = ''
+    }, 3000)
+
+    if (from.href) {
+      return false
+    } else {
+      return { path: '/' }
+    }
+  }
 })
 
 export default router
