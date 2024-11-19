@@ -1,14 +1,19 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router';
-import { inject } from 'vue';
+<script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
+import { computed, inject } from 'vue'
 
-const GStore = inject('GStore');
+interface GStore {
+  flashMessage: string
+}
+
+const GStore = inject<GStore>('GStore')
+const flashMessage = computed(() => GStore && GStore.flashMessage)
 </script>
 
 <template>
   <div id="layout">
-    <div id="flash-message" v-if="GStore.flashMessage">
-      {{ GStore.flashMessage }}
+    <div id="flash-message" v-if="flashMessage">
+      {{ flashMessage }}
     </div>
     <header>
       <div class="wrapper">
